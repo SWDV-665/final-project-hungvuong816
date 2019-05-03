@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2> Welcome to Ionic Final Project.<br>This project will help people living in the same community to share/donate their domestic items for the needy using the native plugin camera on our smart devices </h2>
+  <br>
+  <br>
+  <br>
+  <br>
+ 
+
+      <ion-item>
+        <ion-label>User Name</ion-label>
+        <ion-input type = "text" [(ngModel)]="this.dataService.user_name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>User Password</ion-label>
+        <ion-input type = "password" [(ngModel)]="this.dataService.user_password"></ion-input>
+      </ion-item>
+
+      <button ion-button full (click) ="login()">Register</button>  
+
+      
+
+
+</ion-content>

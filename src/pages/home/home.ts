@@ -4,6 +4,10 @@ import { AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Photo } from '../contact/photo';
 import { GroceriesServiceProvider } from '../../providers/groceries-service/groceries-service';
+import { CallNumber } from '@ionic-native/call-number';
+import { SMS } from '@ionic-native/sms';
+import { EmailComposer } from '@ionic-native/email-composer';
+
 
 
 
@@ -15,7 +19,7 @@ export class HomePage {
   public date: string = new Date().toISOString();
   public temp: string;
 
-  constructor(public navCtrl: NavController, private camera: Camera,public dataService: GroceriesServiceProvider,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, private camera: Camera,public dataService: GroceriesServiceProvider,public alertCtrl: AlertController,private callNumber: CallNumber,private sms: SMS,private emailComposer: EmailComposer) {
   }
   takePhoto(){
     const options: CameraOptions = {
@@ -86,6 +90,42 @@ export class HomePage {
 
   addComment(photo,temp){
     photo.comment.push(temp);
+  }
+
+  makeCall(){
+    this.callNumber.callNumber("4695434949", true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
+  }
+
+  sendSMS(){
+    this.sms.send(this.dataService.phone_number, '');
+  }
+
+  sendEmail(){
+    this.emailComposer.isAvailable().then((available: boolean) =>{
+      if(available) {
+        //Now we know we can send
+      }
+     });
+     
+     let email = {
+       to: this.dataService.email_address,
+       cc: '',
+       bcc: [],
+       attachments: [
+         'file://img/logo.png',
+         'res://icon.png',
+         'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+         'file://README.pdf'
+       ],
+       subject: 'Let me know your thought',
+       body: 'Welcome to Ionic Final Project SWDV665',
+       isHtml: true
+     }
+     
+     // Send a text message using default options
+     this.emailComposer.open(email);
   }
 
 

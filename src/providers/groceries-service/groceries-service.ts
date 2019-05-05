@@ -41,6 +41,12 @@ export class GroceriesServiceProvider {
   
   public user_password: string = "";
 
+  public phone_number: string;
+
+  public email_address: string;
+
+  public avatar : any;
+
 
 
 

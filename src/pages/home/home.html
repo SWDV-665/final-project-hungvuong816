@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Welcome to our sharing communities
+    <ion-navbar color ="primary">
+        <ion-title>
+      Sharing Community
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,15 +10,8 @@
 
 
 
-<button ion-button full color = "primary" (click) = "takePhoto()"  >Take Photo</button>
-<button ion-button full color = "secondary" (click) = "getPhoto()" >Upload From Library</button>
-<button ion-button full color = "danger" (click) = "cropPhoto()" >Crop Photo</button>
-<button ion-button full color = "danger" (click) = "showAddDespPrompt()" >deso</button>
-
-
-
 <ion-item>
-  <p><ion-datetime float-end [(ngModel)]="date" text-right displayFormat="MMMM DD, YYYY" min="2017" max="2100"></ion-datetime></p>
+  <p class="date"><ion-datetime float-end [(ngModel)]="date" displayFormat="MMMM DD, YYYY" min="2017" max="2100"></ion-datetime></p>
 </ion-item>
 
 <!-- <p align = "center" *ngFor = "let photo of photos"><img src = "{{photo.src}}"></p> -->
@@ -26,7 +19,7 @@
   <ion-card *ngFor = "let photo of this.dataService.photos"> 
         <ion-item>
           <ion-avatar>
-            <img src = "../../assets/imgs/hungvuong.jpg"/>
+            <img src = "{{this.dataService.avatar}}"/>
           </ion-avatar>
           <h2>{{this.dataService.user_name}}</h2>
           <h4>
@@ -44,23 +37,41 @@
                 <button ion-button icon-left clear small color = "primary" (click)= "likePhoto(photo)">{{photo.likes}}&nbsp;
                   <ion-icon name = "thumbs-up"></ion-icon>
                 </button>
-                <button ion-button icon-left clear small color = "primary" (click)= "addComment(photo,temp)">
+                <button ion-button icon-left clear small color = "primary" (click)= "sendSMS()">
                     <ion-icon name = "text"></ion-icon>
-                  </button>
+                </button>
+                <button ion-button icon-left clear small color = "primary" (click)= "sendEmail()">
+                  <ion-icon name = "mail"></ion-icon>
+                </button>
+                  
               </ion-item>
             </ion-col>
           </ion-row>
-          
         
         </ion-item>
 
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              
+          <ion-input type = "text" placeholder ="Comment" [(ngModel)]="temp"></ion-input>
+              
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <div style ="text-align: right">
+              <button ion-button icon-end id="button" clear small color = "primary" (click)= "addComment(photo,temp)">
+                <ion-icon name = "ios-arrow-dropright-circle-outline"></ion-icon>
+              </button>
+            </div>      
+          </ion-col>
+        </ion-row>
       
 
-            <ion-input type = "text" placeholder ="Comment Here" [(ngModel)]="temp"></ion-input>
 
               <ion-list *ngFor ="let i of photo.comment">
                   <ion-item>
-                      <ion-avatar><img src = "../../assets/imgs/hungvuong.jpg"/></ion-avatar>
+                      <ion-avatar><img src = "{{this.dataService.avatar}}"/></ion-avatar>
                       <h4> {{i}}</h4>
                   </ion-item>
 

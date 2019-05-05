@@ -25691,3 +25691,27 @@ ion-navbar.toolbar {
   padding-bottom: 4px;
   min-height: 46px;
 }
+
+.enter {
+  margin-left: 10px;
+  background-color: #488aff;
+  font-size: 20px;
+  color: white;
+}
+
+p {
+  size: 15px;
+  margin-left: 20px;
+}
+
+.row {
+  margin-left: 20px;
+}
+
+.button {
+  text-align: center;
+}
+
+.date {
+  margin-left: 5px;
+}

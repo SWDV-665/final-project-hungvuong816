@@ -14,6 +14,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GroceriesServiceProvider } from '../providers/groceries-service/groceries-service';
 import { Camera} from '@ionic-native/camera';
 import { FormsModule } from '@angular/forms';
+import { CallNumber } from '@ionic-native/call-number';
+import { SMS } from '@ionic-native/sms';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 
 @NgModule({
@@ -41,7 +44,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     StatusBar,
-    SplashScreen,Camera,
+    SplashScreen,Camera, CallNumber, SMS, EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GroceriesServiceProvider
   ]

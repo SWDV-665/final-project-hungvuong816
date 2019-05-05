@@ -1,17 +1,18 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color ="primary">
     <ion-title>
-      About
+      User Information
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2> Welcome to Ionic Final Project.<br>This project will help people living in the same community to share/donate their domestic items for the needy using the native plugin camera on our smart devices </h2>
+  <h2> Welcome to Big Heart App.<br>This project will help people living in the same community to share/donate their domestic items for the needy using the native plugin camera on our smart devices </h2>
   <br>
   <br>
   <br>
   <br>
+  <button ion-button full>Please enter your information below</button> 
  
 
       <ion-item>
@@ -24,7 +25,22 @@
         <ion-input type = "password" [(ngModel)]="this.dataService.user_password"></ion-input>
       </ion-item>
 
-      <button ion-button full (click) ="login()">Register</button>  
+      <ion-item>
+        <ion-label>Email Address</ion-label>
+        <ion-input type = "text" [(ngModel)]="this.dataService.email_address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Phone Number</ion-label>
+        <ion-input type = "text" [(ngModel)]="this.dataService.phone_number"></ion-input>
+      </ion-item>
+
+      <button ion-button full (click) ="getPhoto()">Upload Profile Photo</button> 
+
+      <img src = "{{this.dataService.avatar}}"/>
+
+
+
 
       
 

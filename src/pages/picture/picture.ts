@@ -27,7 +27,6 @@ export class PicturePage {
 
 
   takePhoto(){
-    this.showAddDespPrompt();
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -38,13 +37,15 @@ export class PicturePage {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
     
-     this.dataService.photos.splice(0,0,new Photo('data:image/jpeg;base64,' + imageData,0,this.dataService.descriptions[0],["tyty","hungco"]));
+     this.dataService.photos.splice(0,0,new Photo('data:image/jpeg;base64,' + imageData,0,this.dataService.descriptions[0],new Array()));
 
 
 
       }, (err) => {
      // Handle error
     });
+    this.showAddDespPrompt();
+
     console.log(this.dataService.descriptions);
     console.log(this.dataService.photos);
 
@@ -52,7 +53,6 @@ export class PicturePage {
   }
 
   getPhoto(){
-    this.showAddDespPrompt();
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -64,11 +64,12 @@ export class PicturePage {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
  
-     this.dataService.photos.splice(0,0,new Photo('data:image/jpeg;base64,' + imageData,0,this.dataService.descriptions[0],new Array("Mary","Tom","Jack","Jill")));
+     this.dataService.photos.splice(0,0,new Photo('data:image/jpeg;base64,' + imageData,0,this.dataService.descriptions[0],new Array()));
       
     }, (err) => {
      // Handle error
     });
+    this.showAddDespPrompt();
     console.log(  this.dataService.photos);
     
    

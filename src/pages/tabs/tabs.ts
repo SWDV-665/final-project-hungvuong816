@@ -11,10 +11,10 @@ import {PicturePage} from '../picture/picture';
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
+  tab1Root = AboutPage;
   tab2Root = PicturePage;
-  tab3Root = ContactPage;
-  tab4Root = AboutPage;
+  tab3Root = HomePage;
+  tab4Root = ContactPage;
 
   constructor() {
 

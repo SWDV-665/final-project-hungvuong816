@@ -1,15 +1,15 @@
 webpackJsonp([1],{
 
-/***/ 102:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PicturePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_photo__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_groceries_service_groceries_service__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_photo__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_groceries_service_groceries_service__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -42,7 +42,6 @@ var PicturePage = /** @class */ (function () {
     }
     PicturePage.prototype.takePhoto = function () {
         var _this = this;
-        this.showAddDespPrompt();
         var options = {
             quality: 100,
             destinationType: this.camera.DestinationType.DATA_URL,
@@ -52,16 +51,16 @@ var PicturePage = /** @class */ (function () {
         this.camera.getPicture(options).then(function (imageData) {
             // imageData is either a base64 encoded string or a file URI
             // If it's base64 (DATA_URL):
-            _this.dataService.photos.splice(0, 0, new __WEBPACK_IMPORTED_MODULE_3__contact_photo__["a" /* Photo */]('data:image/jpeg;base64,' + imageData, 0, _this.dataService.descriptions[0], ["tyty", "hungco"]));
+            _this.dataService.photos.splice(0, 0, new __WEBPACK_IMPORTED_MODULE_3__contact_photo__["a" /* Photo */]('data:image/jpeg;base64,' + imageData, 0, _this.dataService.descriptions[0], new Array()));
         }, function (err) {
             // Handle error
         });
+        this.showAddDespPrompt();
         console.log(this.dataService.descriptions);
         console.log(this.dataService.photos);
     };
     PicturePage.prototype.getPhoto = function () {
         var _this = this;
-        this.showAddDespPrompt();
         var options = {
             quality: 100,
             destinationType: this.camera.DestinationType.DATA_URL,
@@ -71,10 +70,11 @@ var PicturePage = /** @class */ (function () {
         this.camera.getPicture(options).then(function (imageData) {
             // imageData is either a base64 encoded string or a file URI
             // If it's base64 (DATA_URL):
-            _this.dataService.photos.splice(0, 0, new __WEBPACK_IMPORTED_MODULE_3__contact_photo__["a" /* Photo */]('data:image/jpeg;base64,' + imageData, 0, _this.dataService.descriptions[0], new Array("Mary", "Tom", "Jack", "Jill")));
+            _this.dataService.photos.splice(0, 0, new __WEBPACK_IMPORTED_MODULE_3__contact_photo__["a" /* Photo */]('data:image/jpeg;base64,' + imageData, 0, _this.dataService.descriptions[0], new Array()));
         }, function (err) {
             // Handle error
         });
+        this.showAddDespPrompt();
         console.log(this.dataService.photos);
     };
     PicturePage.prototype.cropPhoto = function () {
@@ -163,7 +163,7 @@ var PicturePage = /** @class */ (function () {
     };
     PicturePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-picture',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/picture/picture.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Picture\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n<button ion-button full color = "primary" (click) = "takePhoto()" >Take Photo</button>\n<button ion-button full color = "secondary" (click) = "getPhoto()" >Upload From Library</button>\n<button ion-button full color = "danger" (click) = "cropPhoto()" >Crop Photo</button>\n\n\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/picture/picture.html"*/,
+            selector: 'page-picture',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/picture/picture.html"*/'<ion-header>\n    <ion-navbar color ="primary">\n        <ion-title>\n      Picture\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <br>\n\n  <h3>Please take a photo of your item or upload from your photo library</h3>\n\n  <br>\n\n<button ion-button full color = "primary" (click) = "takePhoto()" >Take Photo</button>\n<button ion-button full color = "secondary" (click) = "getPhoto()" >Upload From Library</button>\n<button ion-button full color = "danger" (click) = "cropPhoto()" >Crop Photo</button>\n\n<br>\n<h3>Please check the home tab for posting, liking, and contacting.</h3>\n\n\n\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/picture/picture.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_4__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], PicturePage);
@@ -174,7 +174,7 @@ var PicturePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 112:
+/***/ 114:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -187,16 +187,16 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 112;
+webpackEmptyAsyncContext.id = 114;
 
 /***/ }),
 
-/***/ 153:
+/***/ 155:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/picture/picture.module": [
-		275,
+		278,
 		0
 	]
 };
@@ -211,12 +211,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 153;
+webpackAsyncContext.id = 155;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 155:
+/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -235,17 +235,17 @@ var Photo = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 197:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* unused harmony export SlidingPage */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture_picture__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture_picture__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -262,13 +262,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var TabsPage = /** @class */ (function () {
     function TabsPage() {
-        this.tab1Root = __WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */];
+        this.tab1Root = __WEBPACK_IMPORTED_MODULE_1__about_about__["a" /* AboutPage */];
         this.tab2Root = __WEBPACK_IMPORTED_MODULE_4__picture_picture__["a" /* PicturePage */];
-        this.tab3Root = __WEBPACK_IMPORTED_MODULE_2__contact_contact__["a" /* ContactPage */];
-        this.tab4Root = __WEBPACK_IMPORTED_MODULE_1__about_about__["a" /* AboutPage */];
+        this.tab3Root = __WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */];
+        this.tab4Root = __WEBPACK_IMPORTED_MODULE_2__contact_contact__["a" /* ContactPage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="picture" tabIcon="camera"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="List" tabIcon="cart"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n\n</ion-tabs>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/tabs/tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="User" tabIcon="ios-contacts"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Photo" tabIcon="camera"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n\n</ion-tabs>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/tabs/tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -285,14 +285,15 @@ var SlidingPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 198:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -305,10 +306,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AboutPage = /** @class */ (function () {
-    function AboutPage(navCtrl, dataService) {
+    function AboutPage(navCtrl, dataService, camera) {
         this.navCtrl = navCtrl;
         this.dataService = dataService;
+        this.camera = camera;
     }
     AboutPage.prototype.login = function () {
         if (this.dataService.user_name == "") {
@@ -317,15 +320,37 @@ var AboutPage = /** @class */ (function () {
         else if (this.dataService.user_password == "") {
             alert("Please Enter your userpassword");
         }
+        else if (this.dataService.email_address == "") {
+            alert("Please Enter your email address");
+        }
+        else if (this.dataService.phone_number == "") {
+            alert("Please Enter your phone number");
+        }
         else {
             alert("You have successfully registered. Please check other tabs for interaction");
         }
     };
+    AboutPage.prototype.getPhoto = function () {
+        var _this = this;
+        var options = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+            saveToPhotoAlbum: false
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64 (DATA_URL):
+            _this.dataService.avatar = 'data:image/jpeg;base64,' + imageData;
+        }, function (err) {
+            // Handle error
+        });
+    };
     AboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2> Welcome to Ionic Final Project.<br>This project will help people living in the same community to share/donate their domestic items for the needy using the native plugin camera on our smart devices </h2>\n  <br>\n  <br>\n  <br>\n  <br>\n \n\n      <ion-item>\n        <ion-label>User Name</ion-label>\n        <ion-input type = "text" [(ngModel)]="this.dataService.user_name"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>User Password</ion-label>\n        <ion-input type = "password" [(ngModel)]="this.dataService.user_password"></ion-input>\n      </ion-item>\n\n      <button ion-button full (click) ="login()">Register</button>  \n\n      \n\n\n</ion-content>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/about/about.html"*/
+            selector: 'page-about',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar color ="primary">\n    <ion-title>\n      User Information\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2> Welcome to Big Heart App.<br>This project will help people living in the same community to share/donate their domestic items for the needy using the native plugin camera on our smart devices </h2>\n  <br>\n  <br>\n  <br>\n  <br>\n  <button ion-button full>Please enter your information below</button> \n \n\n      <ion-item>\n        <ion-label>User Name</ion-label>\n        <ion-input type = "text" [(ngModel)]="this.dataService.user_name"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>User Password</ion-label>\n        <ion-input type = "password" [(ngModel)]="this.dataService.user_password"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>Email Address</ion-label>\n        <ion-input type = "text" [(ngModel)]="this.dataService.email_address"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>Phone Number</ion-label>\n        <ion-input type = "text" [(ngModel)]="this.dataService.phone_number"></ion-input>\n      </ion-item>\n\n      <button ion-button full (click) ="getPhoto()">Upload Profile Photo</button> \n\n      <img src = "{{this.dataService.avatar}}"/>\n\n\n\n\n      \n\n\n</ion-content>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/about/about.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]])
     ], AboutPage);
     return AboutPage;
 }());
@@ -334,14 +359,16 @@ var AboutPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 199:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_sms__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_email_composer__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -356,123 +383,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var ContactPage = /** @class */ (function () {
-    function ContactPage(navCtrl, toastCtrl, alertCtrl, dataService) {
+    function ContactPage(navCtrl, toastCtrl, alertCtrl, dataService, sms, emailComposer) {
         this.navCtrl = navCtrl;
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.dataService = dataService;
+        this.sms = sms;
+        this.emailComposer = emailComposer;
     }
-    ContactPage.prototype.removeItem = function (item, index) {
-        console.log("Removing Item - ", item, index);
-        var toast = this.toastCtrl.create({
-            message: item.name + " " + "was removed successfully",
-            duration: 3000
-        });
-        toast.present();
-        this.dataService.removeItem(index);
-    };
-    ContactPage.prototype.addItem = function () {
-        console.log("Adding Item");
-        this.showAddItemPrompt();
-    };
-    ContactPage.prototype.showAddItemPrompt = function () {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
-            title: 'Groceries Cart',
-            message: "Please enter the item to your cart",
-            inputs: [
-                {
-                    name: 'name',
-                    placeholder: 'Name'
-                },
-                {
-                    name: 'quantity',
-                    placeholder: 'Quantity'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function (data) {
-                        console.log('Cancel clicked');
-                    }
-                },
-                {
-                    text: 'Save',
-                    handler: function (item) {
-                        console.log('Saved clicked', item);
-                        _this.dataService.addItem(item);
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    };
-    ContactPage.prototype.showEditItemPrompt = function (item, index) {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
-            title: 'Groceries Cart',
-            message: "Please enter the item to your cart",
-            inputs: [
-                {
-                    name: 'name',
-                    placeholder: 'Name'
-                },
-                {
-                    name: 'quantity',
-                    placeholder: 'Quantity'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function (data) {
-                        console.log('Cancel clicked');
-                    }
-                },
-                {
-                    text: 'Save',
-                    handler: function (item) {
-                        console.log('Saved clicked', item);
-                        _this.dataService.editItem(item, index);
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    };
-    ContactPage.prototype.loaditem = function () {
-        return this.dataService.getItem();
-    };
-    ContactPage.prototype.showRadio = function (item, index) {
-        var _this = this;
-        var alert = this.alertCtrl.create();
-        alert.setTitle(item.name);
-        var quantities = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-        quantities.forEach(function (quantity) {
-            alert.addInput({
-                type: 'radio',
-                label: quantity,
-                value: quantity.toLowerCase(),
-                checked: false
-            });
-        });
-        alert.addButton('Cancel');
-        alert.addButton({
-            text: 'OK',
-            handler: function (item) {
-                console.log('Saved clicked Item', item);
-                _this.dataService.editQuantity(item, index);
+    ContactPage.prototype.sendEmail = function () {
+        this.emailComposer.isAvailable().then(function (available) {
+            if (available) {
+                //Now we know we can send
             }
         });
-        alert.present();
+        var email = {
+            to: 'hungvuong816@gmai.com',
+            cc: '',
+            bcc: [],
+            attachments: [
+                'file://img/logo.png',
+                'res://icon.png',
+                'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+                'file://README.pdf'
+            ],
+            subject: 'Let me know your thought',
+            body: 'Welcome to Ionic Final Project SWDV665',
+            isHtml: true
+        };
+        // Send a text message using default options
+        this.emailComposer.open(email);
+    };
+    ContactPage.prototype.sendSMS = function () {
+        this.sms.send("4693589713", '');
     };
     ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contact',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>{{title}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let item of loaditem(); let i = index"> <!--use ngFor for populate list on HTMLm, index is an attribute in Angular, assign variable i to it-->\n      <ion-item>\n \n        <h2>{{item.name}}</h2>\n        <p>{{item.quantity}}</p>\n      </ion-item>\n      <ion-item-options>\n        <button  (click) = "showEditItemPrompt(item,i)" ion-button color="light" icon-start>\n          <ion-icon name="add"></ion-icon>\n          Add\n        </button>\n        <button (click) = "removeItem(item,i)" ion-button color="primary" icon-start> <!--pass variable item and i-->\n          <ion-icon name="trash"></ion-icon>\n          Remove\n        </button>\n        <button (click) = "showRadio(item,i)" ion-button color="secondary" icon-start>\n          <ion-icon name="ios-more"></ion-icon>\n          Edit\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n\n  </ion-list>\n\n  <ion-fab bottom right>\n      <button (click) = "addItem()" ion-fab mini><ion-icon name="add"></ion-icon></button>\n  </ion-fab>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/contact/contact.html"*/
+            selector: 'page-contact',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar color ="primary">\n    <ion-title>About</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <h2 style = "margin-left: 20px">Welcome to Big Heart App!</h2>\n  <br>\n  <p>\n    My name is Hung Vuong, i am the developer of this mobile. I hope this app will help each of us to contribute to share and donate our necessary items across the community. \n  </p>\n  <p>\n    Please reach out to me if you have any questions or concerns.\n  </p>\n  <br>\n  <ion-row class ="row">\n    <ion-col>\n        <button ion-button icon-left color = "primary" (click)= "sendSMS()">\n            <ion-icon name = "text"></ion-icon>\n        </button>\n    </ion-col>\n\n    <ion-col>\n        <button ion-button icon-left color = "secondary" (click)= "sendEmail()">\n            <ion-icon name = "mail"></ion-icon>\n        </button>\n    </ion-col>\n        \n    <ion-col>\n        <a ion-button icon-left color = "dark" href="https://github.com/hungvuong816"><ion-icon name="logo-github"></ion-icon></a>\n    </ion-col>\n  </ion-row>\n\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/contact/contact.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_sms__["a" /* SMS */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_email_composer__["a" /* EmailComposer */]])
     ], ContactPage);
     return ContactPage;
 }());
@@ -481,16 +433,19 @@ var ContactPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 200:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_photo__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_groceries_service_groceries_service__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_photo__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_groceries_service_groceries_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_call_number__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_sms__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_email_composer__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -506,12 +461,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, camera, dataService, alertCtrl) {
+    function HomePage(navCtrl, camera, dataService, alertCtrl, callNumber, sms, emailComposer) {
         this.navCtrl = navCtrl;
         this.camera = camera;
         this.dataService = dataService;
         this.alertCtrl = alertCtrl;
+        this.callNumber = callNumber;
+        this.sms = sms;
+        this.emailComposer = emailComposer;
         this.date = new Date().toISOString();
     }
     HomePage.prototype.takePhoto = function () {
@@ -573,6 +534,37 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.addComment = function (photo, temp) {
         photo.comment.push(temp);
+    };
+    HomePage.prototype.makeCall = function () {
+        this.callNumber.callNumber("4695434949", true)
+            .then(function (res) { return console.log('Launched dialer!', res); })
+            .catch(function (err) { return console.log('Error launching dialer', err); });
+    };
+    HomePage.prototype.sendSMS = function () {
+        this.sms.send(this.dataService.phone_number, '');
+    };
+    HomePage.prototype.sendEmail = function () {
+        this.emailComposer.isAvailable().then(function (available) {
+            if (available) {
+                //Now we know we can send
+            }
+        });
+        var email = {
+            to: this.dataService.email_address,
+            cc: '',
+            bcc: [],
+            attachments: [
+                'file://img/logo.png',
+                'res://icon.png',
+                'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+                'file://README.pdf'
+            ],
+            subject: 'Let me know your thought',
+            body: 'Welcome to Ionic Final Project SWDV665',
+            isHtml: true
+        };
+        // Send a text message using default options
+        this.emailComposer.open(email);
     };
     HomePage.prototype.showAddDespPrompt = function () {
         var _this = this;
@@ -639,9 +631,9 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Welcome to our sharing communities\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n\n\n<button ion-button full color = "primary" (click) = "takePhoto()"  >Take Photo</button>\n<button ion-button full color = "secondary" (click) = "getPhoto()" >Upload From Library</button>\n<button ion-button full color = "danger" (click) = "cropPhoto()" >Crop Photo</button>\n<button ion-button full color = "danger" (click) = "showAddDespPrompt()" >deso</button>\n\n\n\n<ion-item>\n  <p><ion-datetime float-end [(ngModel)]="date" text-right displayFormat="MMMM DD, YYYY" min="2017" max="2100"></ion-datetime></p>\n</ion-item>\n\n<!-- <p align = "center" *ngFor = "let photo of photos"><img src = "{{photo.src}}"></p> -->\n  \n  <ion-card *ngFor = "let photo of this.dataService.photos"> \n        <ion-item>\n          <ion-avatar>\n            <img src = "../../assets/imgs/hungvuong.jpg"/>\n          </ion-avatar>\n          <h2>{{this.dataService.user_name}}</h2>\n          <h4>\n          <ion-item>\n            <ion-datetime [(ngModel)]="date" id = "datesize" displayFormat="MMMM DD, YYYY" min="2017" max="2100"></ion-datetime>\n          </ion-item>\n          </h4>\n          <p>{{this.dataService.descriptions[this.dataService.descriptions.length-1]}}</p>\n        \n         \n          <img src = "{{photo.src}}"/>\n          <ion-row>\n            <ion-col>\n              <ion-item>\n                <button ion-button icon-left clear small color = "primary" (click)= "likePhoto(photo)">{{photo.likes}}&nbsp;\n                  <ion-icon name = "thumbs-up"></ion-icon>\n                </button>\n                <button ion-button icon-left clear small color = "primary" (click)= "addComment(photo,temp)">\n                    <ion-icon name = "text"></ion-icon>\n                  </button>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          \n        \n        </ion-item>\n\n      \n\n            <ion-input type = "text" placeholder ="Comment Here" [(ngModel)]="temp"></ion-input>\n\n              <ion-list *ngFor ="let i of photo.comment">\n                  <ion-item>\n                      <ion-avatar><img src = "../../assets/imgs/hungvuong.jpg"/></ion-avatar>\n                      <h4> {{i}}</h4>\n                  </ion-item>\n\n              </ion-list>\n         \n         \n  </ion-card>\n \n\n</ion-content>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/hungvuong/FinalProject/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color ="primary">\n        <ion-title>\n      Sharing Community\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n\n\n<ion-item>\n  <p class="date"><ion-datetime float-end [(ngModel)]="date" displayFormat="MMMM DD, YYYY" min="2017" max="2100"></ion-datetime></p>\n</ion-item>\n\n<!-- <p align = "center" *ngFor = "let photo of photos"><img src = "{{photo.src}}"></p> -->\n  \n  <ion-card *ngFor = "let photo of this.dataService.photos"> \n        <ion-item>\n          <ion-avatar>\n            <img src = "{{this.dataService.avatar}}"/>\n          </ion-avatar>\n          <h2>{{this.dataService.user_name}}</h2>\n          <h4>\n          <ion-item>\n            <ion-datetime [(ngModel)]="date" id = "datesize" displayFormat="MMMM DD, YYYY" min="2017" max="2100"></ion-datetime>\n          </ion-item>\n          </h4>\n          <p>{{this.dataService.descriptions[this.dataService.descriptions.length-1]}}</p>\n        \n         \n          <img src = "{{photo.src}}"/>\n          <ion-row>\n            <ion-col>\n              <ion-item>\n                <button ion-button icon-left clear small color = "primary" (click)= "likePhoto(photo)">{{photo.likes}}&nbsp;\n                  <ion-icon name = "thumbs-up"></ion-icon>\n                </button>\n                <button ion-button icon-left clear small color = "primary" (click)= "sendSMS()">\n                    <ion-icon name = "text"></ion-icon>\n                </button>\n                <button ion-button icon-left clear small color = "primary" (click)= "sendEmail()">\n                  <ion-icon name = "mail"></ion-icon>\n                </button>\n                  \n              </ion-item>\n            </ion-col>\n          </ion-row>\n        \n        </ion-item>\n\n        <ion-row>\n          <ion-col>\n            <ion-item>\n              \n          <ion-input type = "text" placeholder ="Comment" [(ngModel)]="temp"></ion-input>\n              \n            </ion-item>\n          </ion-col>\n          <ion-col>\n            <div style ="text-align: right">\n              <button ion-button icon-end id="button" clear small color = "primary" (click)= "addComment(photo,temp)">\n                <ion-icon name = "ios-arrow-dropright-circle-outline"></ion-icon>\n              </button>\n            </div>      \n          </ion-col>\n        </ion-row>\n      \n\n\n              <ion-list *ngFor ="let i of photo.comment">\n                  <ion-item>\n                      <ion-avatar><img src = "{{this.dataService.avatar}}"/></ion-avatar>\n                      <h4> {{i}}</h4>\n                  </ion-item>\n\n              </ion-list>\n         \n         \n  </ion-card>\n \n\n</ion-content>\n'/*ion-inline-end:"/Users/hungvuong/FinalProject/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_4__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_4__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_call_number__["a" /* CallNumber */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_sms__["a" /* SMS */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_email_composer__["a" /* EmailComposer */]])
     ], HomePage);
     return HomePage;
 }());
@@ -650,13 +642,13 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 201:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(227);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -664,7 +656,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 224:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -672,23 +664,29 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_picture_picture__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_groceries_service_groceries_service__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_camera__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_picture_picture__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_groceries_service_groceries_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_camera__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_call_number__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_sms__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_email_composer__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -736,7 +734,7 @@ var AppModule = /** @class */ (function () {
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_12__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_12__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_14__ionic_native_call_number__["a" /* CallNumber */], __WEBPACK_IMPORTED_MODULE_15__ionic_native_sms__["a" /* SMS */], __WEBPACK_IMPORTED_MODULE_16__ionic_native_email_composer__["a" /* EmailComposer */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_11__providers_groceries_service_groceries_service__["a" /* GroceriesServiceProvider */]
             ]
@@ -749,16 +747,16 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 274:
+/***/ 277:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(199);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -795,7 +793,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 40:
+/***/ 41:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -871,5 +869,5 @@ var GroceriesServiceProvider = /** @class */ (function () {
 
 /***/ })
 
-},[201]);
+},[204]);
 //# sourceMappingURL=main.js.map

@@ -14,12 +14,27 @@
 
   <br>
 
+
+
 <button ion-button full color = "primary" (click) = "takePhoto()" >Take Photo</button>
 <button ion-button full color = "secondary" (click) = "getPhoto()" >Upload From Library</button>
 <button ion-button full color = "danger" (click) = "cropPhoto()" >Crop Photo</button>
 
+<img src = "{{this.dataService.photo_temp}}"/>
+
 <br>
-<h3>Please check the home tab for posting, liking, and contacting.</h3>
+<br>
+<h3>Post Title</h3>
+<ion-input id = "my_text" type = "text" placeholder ="Please Enter Item Description" [(ngModel)]="this.dataService.desp_temp"></ion-input>
+<br>
+
+<button ion-button full color = "Primary" (click) ="photoObject()">Create Post</button> 
+
+
+
+
+<br>
+
 
 
 

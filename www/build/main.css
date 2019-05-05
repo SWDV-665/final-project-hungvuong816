@@ -25715,3 +25715,7 @@ p {
 .date {
   margin-left: 5px;
 }
+
+#my_text {
+  border-style: groove;
+}

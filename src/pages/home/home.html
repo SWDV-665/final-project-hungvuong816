@@ -27,7 +27,7 @@
             <ion-datetime [(ngModel)]="date" id = "datesize" displayFormat="MMMM DD, YYYY" min="2017" max="2100"></ion-datetime>
           </ion-item>
           </h4>
-          <p>{{this.dataService.descriptions[this.dataService.descriptions.length-1]}}</p>
+          <p>{{photo.description}}</p>
         
          
           <img src = "{{photo.src}}"/>
@@ -54,7 +54,7 @@
           <ion-col>
             <ion-item>
               
-          <ion-input type = "text" placeholder ="Comment" [(ngModel)]="temp"></ion-input>
+          <ion-input type = "text" placeholder ="AddComment" [(ngModel)]="temp"></ion-input>
               
             </ion-item>
           </ion-col>

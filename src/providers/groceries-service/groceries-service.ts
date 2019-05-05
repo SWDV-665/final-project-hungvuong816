@@ -47,6 +47,10 @@ export class GroceriesServiceProvider {
 
   public avatar : any;
 
+  public photo_temp : any;
+
+  public desp_temp: any;
+
 
 
 

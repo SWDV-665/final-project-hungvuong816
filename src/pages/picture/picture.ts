@@ -37,18 +37,13 @@ export class PicturePage {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
     
-     this.dataService.photos.splice(0,0,new Photo('data:image/jpeg;base64,' + imageData,0,this.dataService.descriptions[0],new Array()));
+     this.dataService.photo_temp = 'data:image/jpeg;base64,' + imageData;      
 
 
 
       }, (err) => {
      // Handle error
     });
-    this.showAddDespPrompt();
-
-    console.log(this.dataService.descriptions);
-    console.log(this.dataService.photos);
-
    
   }
 
@@ -64,15 +59,10 @@ export class PicturePage {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
  
-     this.dataService.photos.splice(0,0,new Photo('data:image/jpeg;base64,' + imageData,0,this.dataService.descriptions[0],new Array()));
-      
+      this.dataService.photo_temp = 'data:image/jpeg;base64,' + imageData;      
     }, (err) => {
      // Handle error
-    });
-    this.showAddDespPrompt();
-    console.log(  this.dataService.photos);
-    
-   
+    });   
   }
 
   cropPhoto(){
@@ -89,8 +79,8 @@ export class PicturePage {
     this.camera.getPicture(options).then((imageData) => {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
-     this.dataService.photos.splice(0,0,new Photo('data:image/jpeg;base64,' + imageData,0,this.dataService.descriptions[0],[]));
-        }, (err) => {
+     this.dataService.photo_temp = 'data:image/jpeg;base64,' + imageData;      
+    }, (err) => {
      // Handle error
     });
   }
@@ -104,10 +94,32 @@ export class PicturePage {
     photo.likes++;
   }
 
+  photoObject(){
+    this.dataService.photos.splice(0,0,new Photo(this.dataService.photo_temp,0,this.dataService.desp_temp,[]));
+    this.showAlert();
+    this.resetInput();
+  }
+
+  async showAlert() {
+    const alert = await this.alertCtrl.create({
+      message: 'Your Post was successfully created. <br> Please check the home tab to add comments, likes, and contacts ',
+    });
+  
+    await alert.present();
+  }
+
+  resetInput(){
+    this.dataService.desp_temp ="";
+  }
+
+  
+
+  
+
   showAddItemPrompt() {
     const prompt = this.alertCtrl.create({
       title: 'Groceries Cart',
-      message: "Please enter the item to your cart",
+      message: "Please enter  item to your cart.",
       inputs: [
         {
           name: 'name',

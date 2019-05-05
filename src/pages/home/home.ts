@@ -90,12 +90,17 @@ export class HomePage {
 
   addComment(photo,temp){
     photo.comment.push(temp);
+    this.resetComment();
   }
 
   makeCall(){
     this.callNumber.callNumber("4695434949", true)
     .then(res => console.log('Launched dialer!', res))
     .catch(err => console.log('Error launching dialer', err));
+  }
+
+  resetComment(){
+    this.temp = "";
   }
 
   sendSMS(){
